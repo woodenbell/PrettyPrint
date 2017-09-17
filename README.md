@@ -107,7 +107,7 @@ ___
 
 **The following examples are tanken from the tests**
 
-### Object print
+### Object printing
     
     import io.github.woodenbell.pprint.ObjectPrint;
     import io.github.woodenbell.pprint.PrettyPrintable;
@@ -176,7 +176,7 @@ ___
 	*/
 
 	    
-### Object array print
+### Object array printing
 
     import io.github.woodenbell.pprint.ObjectPrint;
     
