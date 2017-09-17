@@ -1,0 +1,46 @@
+version = '1.0'
+project.buildDir = 'build'
+
+
+apply plugin: 'java-library'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+
+    implementation 'com.google.guava:guava:21.0'
+
+    testImplementation 'junit:junit:4.12'
+    
+    testCompile "junit:junit:4.12"
+}
+
+
+task buildJar(type: Jar) {
+
+
+	println 'Building jar for ' + project.name + ' version ' + version
+	manifest {
+		attributes 'Name' : 'io/github/woodenbell/pprint',
+		'Sealed' : 'true',
+		'Specification-Title' : '"PrettyPrint Java Library"',
+		'Specification-Version' : '"' + version + '"',
+		'Specification-Vendor' : '"WoodenBell"',
+		'Implementation-Title' : '"io.github.woodenbell.pprint"',
+		'Implementation-Version' : '"build1"',
+		'Implementation-Vendor' : '"WoodenBell"'
+	}
+	from 'bin'
+	include 'io/github/woodenbell/pprint/*.class'
+	destinationDir = file(project.buildDir)
+
+}
+
+task genJavadoc(type: Javadoc) {
+	println 'Generating the javadoc documentation for ' + project.name
+	source = sourceSets.main.allJava
+}
+
+buildJar.dependsOn genJavadoc
