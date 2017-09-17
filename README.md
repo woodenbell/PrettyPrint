@@ -85,7 +85,7 @@ You can find an example of recursive *prettyprint* in action [here](#recursive-o
 
 ## Collection printing
 Collection printing is separed in two types of collections:
-- The ones that uses keys: **Map**
+- The ones that use keys: **Map**
 - The ones that don't: **Set, List and Queue**
 
 Printing a *Map* has the option `withKeys` instead of `enumerated`. The *Sets, Lists and Queues*
