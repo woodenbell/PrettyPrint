@@ -58,7 +58,7 @@ described below:
 returns `null`.
 - **ppGetValues()** - Must return an array of objects containing the fields of the object that are going to be printed.
 
-**Having implemented all the methods, you can print the object just like shown [above](#using%20prettyPrint), in the following way:**
+**Having implemented all the methods, you can print the object just like shown [above](#using-prettyprint), in the following way:**
 
     import io.github.woodenbell.pprint.ObjectPrint
     
@@ -81,7 +81,7 @@ Outer2:
 ----Inner2:
 --------Inner3: "depth=2, 2 * 4 = 8 padding chars"
 
-You can find an example of recursive *prettyprint* in action [here](#Recursive%20object%20printing)
+You can find an example of recursive *prettyprint* in action [here](#recursive-object-printing)
 
 ## Collection printing
 Collection printing is separed in two types of collections:
