@@ -7,7 +7,7 @@
 - Custom pretty printing for objects!
 - Recursive printing for objects!
 
-**Examples [here](#Examples)**
+**Examples [here](#examples)**
 ___
 
 ## Using prettyPrint
@@ -58,7 +58,7 @@ described below:
 returns `null`.
 - **ppGetValues()** - Must return an array of objects containing the fields of the object that are going to be printed.
 
-**Having implemented all the methods, you can print the object just like shown [above](#Using%20prettyPrint), in the following way:**
+**Having implemented all the methods, you can print the object just like shown [above](#using%20prettyPrint), in the following way:**
 
     import io.github.woodenbell.pprint.ObjectPrint
     
