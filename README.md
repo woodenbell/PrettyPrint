@@ -74,12 +74,12 @@ Recursive printing works just like normal printing, except when a field that als
 The recursive print then goes down one level in depth, jumping one line and padding 4 times the depth with the *padding character*
 
 **Example:**
-Value: 5
-Outer:
-----Inner: "padding char -"
-Outer2:
-----Inner2:
---------Inner3: "depth=2, 2 * 4 = 8 padding chars"
+Value: 5  
+Outer:  
+----Inner: "padding char -"  
+Outer2:  
+----Inner2:  
+--------Inner3: "depth=2, 2 * 4 = 8 padding chars"  
 
 You can find an example of recursive *prettyprint* in action [here](#recursive-object-printing)
 
@@ -94,10 +94,10 @@ will have their indexes printed.
   
 Collections use the **CollectionPrint** class, just like below:
 
-    import io.gtihub.woodenbell.pprint.CollectionPrint
+    import io.github.woodenbell.pprint.CollectionPrint
     
     CollectionPrint.prettyPrint(myMap, true); //Prints the map with it's keys and values
-    CollectionPrint.prettyPrint(
+    CollectionPrint.prettyPrint(myList, true); //Prints the list elements with their indexes
 
 **Collections unfortunately doesn't support recursive print, by the fact that collections, differently from objects that implement PrettyPrintable, have different ways to get keys and values. One example is Map and Set, because in map an Iterator is needed, while Set can be iterated by a for loop**
 ___
