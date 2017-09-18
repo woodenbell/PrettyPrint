@@ -38,15 +38,15 @@ ___
 **There are 3 options for TableFormat**:
 
 - **Util.TableFormat.UNDERSCORE (default TableFormat option)**   
-   top/bottom border: `_`
+   top/bottom border: `_`  
    right/left border: `|`
   
 - **Util.TableFormat.EQUALS**   
-   top/bottom border: `=`
+   top/bottom border: `=`  
    right/left border: `|`
   
 - **Util.TableFormat.HYPHEN**   
-   top/bottom border: `-`
+   top/bottom border: `-`  
    right/left border: `|`
 
 ## Object Printing
