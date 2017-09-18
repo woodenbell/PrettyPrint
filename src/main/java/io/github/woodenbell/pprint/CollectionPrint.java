@@ -77,14 +77,16 @@ public class CollectionPrint {
 		if (p == null)
 			return;
 
-		for (Object ob : p) {
-			if (ob == null)
-				return;
-		}
-
 		int maxCharLen = 0;
 
 		for (Object obj : p) {
+
+			if (obj == null) {
+				if (maxCharLen < 4)
+					maxCharLen = 4;
+				continue;
+			}
+
 			if (obj.toString().length() > maxCharLen)
 				maxCharLen = obj.toString().length();
 		}
@@ -100,7 +102,8 @@ public class CollectionPrint {
 
 					System.out.printf("%1s%-" + ((p.size() + "").length() + 1) + "s%1s", tableFormat.division, i,
 							tableFormat.division);
-					System.out.printf("%-" + maxCharLen + "s%1s\n", o.toString(), tableFormat.division);
+					System.out.printf("%-" + maxCharLen + "s%1s\n", (o == null ? "null" : o.toString()),
+							tableFormat.division);
 
 					i++;
 				}
@@ -112,8 +115,8 @@ public class CollectionPrint {
 				System.out.println(Util.makePadding(tableFormat.border, maxCharLen + 2));
 
 				for (Object o : p) {
-					System.out.printf("%1s%-" + maxCharLen + "s%1s\n", tableFormat.division, o.toString(),
-							tableFormat.division);
+					System.out.printf("%1s%-" + maxCharLen + "s%1s\n", tableFormat.division,
+							(o == null ? "null" : o.toString()), tableFormat.division);
 				}
 
 				System.out.println(Util.makePadding(tableFormat.border, maxCharLen + 2));
@@ -124,12 +127,12 @@ public class CollectionPrint {
 				int i = 0;
 				for (Object o : p) {
 					System.out.printf("%-" + ((p.size() + "").length() + 2) + "s", i + ": ");
-					System.out.printf("%-" + maxCharLen + "s\n", o.toString());
+					System.out.printf("%-" + maxCharLen + "s\n", (o == null ? "null" : o.toString()));
 					i++;
 				}
 			} else {
 				for (Object o : p) {
-					System.out.printf("%-" + maxCharLen + "s\n", o.toString());
+					System.out.printf("%-" + maxCharLen + "s\n", (o == null ? "null" : o.toString()));
 				}
 			}
 		}
@@ -192,13 +195,8 @@ public class CollectionPrint {
 	 */
 
 	public static void prettyPrint(Map<?, ?> p, boolean tableLike, boolean withKeys, Util.TableFormat tableFormat) {
-
+		
 		if (p == null)
-			return;
-
-		if (withKeys && p.containsKey(null))
-			return;
-		if (p.containsValue(null))
 			return;
 
 		int maxCharLenKeys = 0;
@@ -209,13 +207,29 @@ public class CollectionPrint {
 		Object curr;
 
 		while (withKeys && iterKeys.hasNext()) {
+
 			curr = iterKeys.next();
+
+			if (curr == null) {
+				if (maxCharLenKeys < 4)
+					maxCharLenKeys = 4;
+				continue;
+			}
+
 			if (curr.toString().length() > maxCharLenKeys)
 				maxCharLenKeys = curr.toString().length();
 		}
 
 		while (iterVals.hasNext()) {
+
 			curr = iterVals.next();
+
+			if (curr == null) {
+				if (maxCharLenVals < 4)
+					maxCharLenVals = 4;
+				continue;
+			}
+
 			if (curr.toString().length() > maxCharLenVals)
 				maxCharLenVals = curr.toString().length();
 		}
@@ -232,9 +246,11 @@ public class CollectionPrint {
 
 					curr = iterKeys.next();
 
-					System.out.printf("%1s%-" + maxCharLenKeys + "s%1s", tableFormat.division, curr.toString(),
-							tableFormat.division);
-					System.out.printf("%-" + maxCharLenVals + "s%1s\n", p.get(curr).toString(), tableFormat.division);
+					System.out.printf("%1s%-" + maxCharLenKeys + "s%1s", tableFormat.division,
+							(curr == null ? "null" : curr.toString()), tableFormat.division);
+
+					System.out.printf("%-" + maxCharLenVals + "s%1s\n",
+							(p.get(curr) == null ? null : p.get(curr)).toString(), tableFormat.division);
 
 				}
 
@@ -248,8 +264,8 @@ public class CollectionPrint {
 
 					curr = iterKeys.next();
 
-					System.out.printf("%1s%-" + maxCharLenKeys + "s%1s\n", tableFormat.division, p.get(curr).toString(),
-							tableFormat.division);
+					System.out.printf("%1s%-" + maxCharLenKeys + "s%1s\n", tableFormat.division,
+							(p.get(curr) == null ? null : p.get(curr).toString()), tableFormat.division);
 				}
 
 				System.out.println(Util.makePadding(tableFormat.border, maxCharLenVals + 2));
@@ -263,8 +279,10 @@ public class CollectionPrint {
 
 					curr = iterKeys.next();
 
-					System.out.printf("%-" + (maxCharLenKeys + 2) + "s", curr.toString() + ": ");
-					System.out.printf("%-" + maxCharLenVals + "s\n", p.get(curr).toString());
+					System.out.printf("%-" + (maxCharLenKeys + 2) + "s",
+							(curr == null ? "null" : curr.toString()) + ": ");
+					System.out.printf("%-" + maxCharLenVals + "s\n",
+							(p.get(curr) == null ? null : p.get(curr).toString()));
 				}
 
 			} else {
@@ -272,7 +290,8 @@ public class CollectionPrint {
 				while (iterKeys.hasNext()) {
 
 					curr = iterKeys.next();
-					System.out.printf("%-" + maxCharLenVals + "s\n", p.get(curr).toString());
+					System.out.printf("%-" + maxCharLenVals + "s\n",
+							(p.get(curr) == null ? null : p.get(curr)).toString());
 				}
 			}
 		}
@@ -339,14 +358,16 @@ public class CollectionPrint {
 		if (p == null)
 			return;
 
-		for (Object ob : p) {
-			if (ob == null)
-				return;
-		}
-
 		int maxCharLen = 0;
 
 		for (Object obj : p) {
+
+			if (obj == null) {
+				if (maxCharLen < 4)
+					maxCharLen = 4;
+				continue;
+			}
+
 			if (obj.toString().length() > maxCharLen)
 				maxCharLen = obj.toString().length();
 		}
@@ -362,7 +383,8 @@ public class CollectionPrint {
 
 					System.out.printf("%1s%-" + ((p.size() + "").length() + 1) + "s%1s", tableFormat.division, i,
 							tableFormat.division);
-					System.out.printf("%-" + maxCharLen + "s%1s\n", o.toString(), tableFormat.division);
+					System.out.printf("%-" + maxCharLen + "s%1s\n", (o == null ? "null" : o.toString()),
+							tableFormat.division);
 
 					i++;
 				}
@@ -374,8 +396,8 @@ public class CollectionPrint {
 				System.out.println(Util.makePadding(tableFormat.border, maxCharLen + 2));
 
 				for (Object o : p) {
-					System.out.printf("%1s%-" + maxCharLen + "s%1s\n", tableFormat.division, o.toString(),
-							tableFormat.division);
+					System.out.printf("%1s%-" + maxCharLen + "s%1s\n", tableFormat.division,
+							(o == null ? "null" : o.toString()), tableFormat.division);
 				}
 
 				System.out.println(Util.makePadding(tableFormat.border, maxCharLen + 2));
@@ -386,12 +408,12 @@ public class CollectionPrint {
 				int i = 0;
 				for (Object o : p) {
 					System.out.printf("%-" + ((p.size() + "").length() + 2) + "s", i + ": ");
-					System.out.printf("%-" + maxCharLen + "s\n", o.toString());
+					System.out.printf("%-" + maxCharLen + "s\n", (o == null ? "null" : o.toString()));
 					i++;
 				}
 			} else {
 				for (Object o : p) {
-					System.out.printf("%-" + maxCharLen + "s\n", o.toString());
+					System.out.printf("%-" + maxCharLen + "s\n", (o == null ? "null" : o.toString()));
 				}
 			}
 		}
@@ -458,14 +480,16 @@ public class CollectionPrint {
 		if (p == null)
 			return;
 
-		for (Object ob : p) {
-			if (ob == null)
-				return;
-		}
-
 		int maxCharLen = 0;
 
 		for (Object obj : p) {
+
+			if (obj == null) {
+				if (maxCharLen < 4)
+					maxCharLen = 4;
+				continue;
+			}
+
 			if (obj.toString().length() > maxCharLen)
 				maxCharLen = obj.toString().length();
 		}
@@ -481,7 +505,8 @@ public class CollectionPrint {
 
 					System.out.printf("%1s%-" + ((p.size() + "").length() + 1) + "s%1s", tableFormat.division, i,
 							tableFormat.division);
-					System.out.printf("%-" + maxCharLen + "s%1s\n", o.toString(), tableFormat.division);
+					System.out.printf("%-" + maxCharLen + "s%1s\n", (o == null ? "null" : o.toString()),
+							tableFormat.division);
 
 					i++;
 				}
@@ -493,8 +518,8 @@ public class CollectionPrint {
 				System.out.println(Util.makePadding(tableFormat.border, maxCharLen + 2));
 
 				for (Object o : p) {
-					System.out.printf("%1s%-" + maxCharLen + "s%1s\n", tableFormat.division, o.toString(),
-							tableFormat.division);
+					System.out.printf("%1s%-" + maxCharLen + "s%1s\n", tableFormat.division,
+							(o == null ? "null" : o.toString()), tableFormat.division);
 				}
 
 				System.out.println(Util.makePadding(tableFormat.border, maxCharLen + 2));
@@ -505,12 +530,12 @@ public class CollectionPrint {
 				int i = 0;
 				for (Object o : p) {
 					System.out.printf("%-" + ((p.size() + "").length() + 2) + "s", i + ": ");
-					System.out.printf("%-" + maxCharLen + "s\n", o.toString());
+					System.out.printf("%-" + maxCharLen + "s\n", (o == null ? "null" : o.toString()));
 					i++;
 				}
 			} else {
 				for (Object o : p) {
-					System.out.printf("%-" + maxCharLen + "s\n", o.toString());
+					System.out.printf("%-" + maxCharLen + "s\n", (o == null ? "null" : o.toString()));
 				}
 			}
 		}
