@@ -210,8 +210,8 @@ ___
 
 ### Recursive object printing
 
-    import io.github.woodenbell.pprint.ObjectPrint
-    import io.github.woodenbell.pprint.PrettyPrintable
+    import io.github.woodenbell.pprint.ObjectPrint;
+    import io.github.woodenbell.pprint.PrettyPrintable;
     import java.util.ArrayList;
     
     // Simulates a JSON-like structure
