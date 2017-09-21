@@ -17,17 +17,21 @@ PrettyPrint, independent of the object type, is used in the following forms:
  
 `PPrintClass.prettyPrint(object, enumerated, table, tableFormat);`
 #### Prints without enumeration (or keys)
+  
 `PPrintClass.prettyPrint(someObject);`
     
 #### Prints with enumeration
+  
 `PPrintClass.prettyPrint(someObject, true);`
     
 #### Prints with enumeration and in a table-format
-_UNDERSCORE_ table format is used  
+_UNDERSCORE_ table format is used 
+  
 `PPrintClass.prettyPrint(someObject, true, true);`
     
-##### Prints with enumeration and in spefic table-format
+#### Prints with enumeration and in spefic table-format
 _EQUALS_ table format is used  
+  
 `PPrintClass.prettyPrint(someObject, true, true, Util.TableFormat.EQUALS);`
 ___
 ## TableFormat options  
