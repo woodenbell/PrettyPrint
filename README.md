@@ -16,13 +16,13 @@ PrettyPrint, independent of the object type, is used in the following forms:
 **PPrintClass represents the class corresponding to the print type (Can be either ObjectPrint or CollectionPrint)**
  
 `PPrintClass.prettyPrint(object, enumerated, table, tableFormat);`
-##### Prints without enumeration (or keys)
+#### Prints without enumeration (or keys)
 `PPrintClass.prettyPrint(someObject);`
     
-##### Prints with enumeration
+#### Prints with enumeration
 `PPrintClass.prettyPrint(someObject, true);`
     
-##### Prints with enumeration and in a table-format
+#### Prints with enumeration and in a table-format
 **Default table format characters ('_' and '|')**  
 `PPrintClass.prettyPrint(someObject, true, true);`
     
