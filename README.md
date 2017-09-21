@@ -30,7 +30,7 @@ _UNDERSCORE_ table format is used
 `PPrintClass.prettyPrint(someObject, true, true);`
     
 #### Prints with enumeration and in spefic table-format
-_EQUALS_ table format is used  
+_EQUALS_ table format is specified and used  
   
 `PPrintClass.prettyPrint(someObject, true, true, Util.TableFormat.EQUALS);`
 ___
