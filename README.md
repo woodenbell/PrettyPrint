@@ -13,50 +13,50 @@ ___
 ## Using prettyPrint
 PrettyPrint, independent of the object type, is used in the following forms:
 
-    // PPrintClass represents the class corresponding to the print type
-    // Can be either ObjectPrint or CollectionPrint
+**PPrintClass represents the class corresponding to the print type (Can be either ObjectPrint or CollectionPrint)**
+ 
+`PPrintClass.prettyPrint(object, enumerated, table, tableFormat);`
+##### Prints without enumeration (or keys)
+`PPrintClass.prettyPrint(someObject);`
     
-    // Prints without enumeration (or keys)
-    PPrintClass.prettyPrint(someObject);
+##### Prints with enumeration
+`PPrintClass.prettyPrint(someObject, true);`
     
-    // Prints with enumeration (or keys)..
-    PPrintClass.prettyPrint(someObject, true); 
+##### Prints with enumeration and in a table-format
+**Default table format characters ('_' and '|')**  
+`PPrintClass.prettyPrint(someObject, true, true);`
     
-    /* 
-    * Prints with enumeration (or keys) and in a table-format, with default 
-    * table format characters ( '_' and '|' )
-    */
-    PPrintClass.prettyPrint(someObject, true, true);
-    
-    /* 
-    * Prints with enumeration (or keys) and in a table-format, with the equals sign ('=')
-    * as top and bottom border, and with '_' as division and left/right borders.
-    */
-    PPrintClass.prettyPrint(someObject, true, true, Util.TableFormat.EQUALS);
+##### Prints with enumeration and in spefic table-format
+**_EQUALS_ table format is used**
+`PPrintClass.prettyPrint(someObject, true, true, Util.TableFormat.EQUALS);`
 ___
 ## TableFormat options  
-**There are 3 options for TableFormat**:
+**There are 3 options for table format**:
 
-- **Util.TableFormat.UNDERSCORE (default TableFormat option)**   
-   top/bottom border: `_`  
-   right/left border: `|`
+- **Util.TableFormat.UNDERSCORE** 
+   **(default TableFormat option)**   
+   Top/bottom border char: `_`  
+   Right/left border char: `|`
   
 - **Util.TableFormat.EQUALS**   
-   top/bottom border: `=`  
-   right/left border: `|`
+   Top/bottom border char: `=`  
+   Right/left border char: `|`
   
 - **Util.TableFormat.HYPHEN**   
-   top/bottom border: `-`  
-   right/left border: `|`
+   Top/bottom border char: `-`  
+   Right/left border char: `|`
 
 ## Object Printing
-To be pretty printed, an object must implement the `PrettyPrintable` interface. It's methodas are 
-described below:
+To be pretty printed, an object must implement the `PrettyPrintable` interface. It's methods are described below:
 - **ppIsRecursive()** - Must return `true` if the object accepts recursive printing, otherwise `false`.
-- **ppHasKeys()** - Must return `true` if the object will use keys when `enumerated` is `true` on `prettyPrint`, also if this methods returns `true` then `ppGetKeys()` cannot return `null`, otherwise the `prettyPrint` method will return immediately. Returning `false` will tell the method to use the index before each value when `enumerated` is `true`.
+  
+- **ppHasKeys()** - Must return `true` if the object will use keys (called when `enumerated` is `true` on `prettyPrint`), also if this methods returns `true` then `ppGetKeys()` cannot return `null`, otherwise the `prettyPrint` method will return immediately (cannot use keys that are `null`). Returning `false` will tell the method to use the index before each value when `enumerated` is `true`.
+  
 - **ppGetKeys()** - Must return an array of objects that are going to be used as keys, otherwise
 returns `null`.
+  
 - **ppGetValues()** - Must return an array of objects containing the fields of the object that are going to be printed.
+  
 
 **Having implemented all the methods, you can print the object just like shown [above](#using-prettyprint), in the following way:**
 
