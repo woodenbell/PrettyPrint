@@ -17,18 +17,18 @@ import java.util.Set;
 public class CollectionPrint {
 
 	/**
-	 * Overloaded prettyPrint for List collection with default options.
+	 * Overloaded pprint for List collection with default options.
 	 * 
 	 * @param p
 	 *            The List object.
 	 */
 
-	public static void prettyPrint(List<?> p) {
-		prettyPrint(p, false, false, Util.TableFormat.UNDERSCORE);
+	public static void pprint(List<?> p) {
+		pprint(p, false, false, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for List collection with enumeration option.
+	 * Overloaded pprint for List collection with enumeration option.
 	 * 
 	 * @param p
 	 *            The List object.
@@ -36,12 +36,12 @@ public class CollectionPrint {
 	 *            If the index of each element should be printed.
 	 */
 
-	public static void prettyPrint(List<?> p, boolean enumerated) {
-		prettyPrint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(List<?> p, boolean enumerated) {
+		pprint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for List collection with option to default table
+	 * Overloaded pprint for List collection with option to default table
 	 * format.
 	 * 
 	 * @param p
@@ -53,8 +53,8 @@ public class CollectionPrint {
 	 * @see io.github.woodenbell.pprint.Util.TableFormat#UNDERSCORE
 	 */
 
-	public static void prettyPrint(List<?> p, boolean tableLike, boolean enumerated) {
-		prettyPrint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(List<?> p, boolean tableLike, boolean enumerated) {
+		pprint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class CollectionPrint {
 	 * @see java.util.List
 	 */
 
-	public static void prettyPrint(List<?> p, boolean tableLike, boolean enumerated, Util.TableFormat tableFormat) {
+	public static void pprint(List<?> p, boolean tableLike, boolean enumerated, Util.TableFormat tableFormat) {
 
 		if (p == null)
 			return;
@@ -139,18 +139,18 @@ public class CollectionPrint {
 	}
 
 	/**
-	 * Overloaded prettyPrint for Map collection with default options.
+	 * Overloaded pprint for Map collection with default options.
 	 * 
 	 * @param p
 	 *            The Map object.
 	 */
 
-	public static void prettyPrint(Map<?, ?> p) {
-		prettyPrint(p, false, false, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Map<?, ?> p) {
+		pprint(p, false, false, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for Map collection with key printing option.
+	 * Overloaded pprint for Map collection with key printing option.
 	 * 
 	 * @param p
 	 *            The Map object.
@@ -158,12 +158,12 @@ public class CollectionPrint {
 	 *            If the key corresponding each element should be printed.
 	 */
 
-	public static void prettyPrint(Map<?, ?> p, boolean withKeys) {
-		prettyPrint(p, false, withKeys, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Map<?, ?> p, boolean withKeys) {
+		pprint(p, false, withKeys, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for Map collection with option to default table
+	 * Overloaded pprint for Map collection with option to default table
 	 * format.
 	 * 
 	 * @param p
@@ -175,8 +175,8 @@ public class CollectionPrint {
 	 * @see io.github.woodenbell.pprint.Util.TableFormat#UNDERSCORE
 	 */
 
-	public static void prettyPrint(Map<?, ?> p, boolean tableLike, boolean withKeys) {
-		prettyPrint(p, tableLike, withKeys, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Map<?, ?> p, boolean tableLike, boolean withKeys) {
+		pprint(p, tableLike, withKeys, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class CollectionPrint {
 	 * @see java.util.Map
 	 */
 
-	public static void prettyPrint(Map<?, ?> p, boolean tableLike, boolean withKeys, Util.TableFormat tableFormat) {
+	public static void pprint(Map<?, ?> p, boolean tableLike, boolean withKeys, Util.TableFormat tableFormat) {
 		
 		if (p == null)
 			return;
@@ -298,18 +298,18 @@ public class CollectionPrint {
 	}
 
 	/**
-	 * Overloaded prettyPrint for Set collection with default options.
+	 * Overloaded pprint for Set collection with default options.
 	 * 
 	 * @param p
 	 *            The Set object.
 	 */
 
-	public static void prettyPrint(Set<?> p) {
-		prettyPrint(p, false, false, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Set<?> p) {
+		pprint(p, false, false, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for Set collection with enumeration option.
+	 * Overloaded pprint for Set collection with enumeration option.
 	 * 
 	 * @param p
 	 *            The Set object.
@@ -317,12 +317,12 @@ public class CollectionPrint {
 	 *            If the index of each element should be printed.
 	 */
 
-	public static void prettyPrint(Set<?> p, boolean enumerated) {
-		prettyPrint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Set<?> p, boolean enumerated) {
+		pprint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for Set collection with option to default table
+	 * Overloaded pprint for Set collection with option to default table
 	 * format.
 	 * 
 	 * @param p
@@ -334,8 +334,8 @@ public class CollectionPrint {
 	 * @see io.github.woodenbell.pprint.Util.TableFormat#UNDERSCORE
 	 */
 
-	public static void prettyPrint(Set<?> p, boolean tableLike, boolean enumerated) {
-		prettyPrint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Set<?> p, boolean tableLike, boolean enumerated) {
+		pprint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
@@ -353,7 +353,7 @@ public class CollectionPrint {
 	 * @see java.util.Set
 	 */
 
-	public static void prettyPrint(Set<?> p, boolean tableLike, boolean enumerated, Util.TableFormat tableFormat) {
+	public static void pprint(Set<?> p, boolean tableLike, boolean enumerated, Util.TableFormat tableFormat) {
 
 		if (p == null)
 			return;
@@ -420,18 +420,18 @@ public class CollectionPrint {
 	}
 
 	/**
-	 * Overloaded prettyPrint for Queue collection with default options.
+	 * Overloaded pprint for Queue collection with default options.
 	 * 
 	 * @param p
 	 *            The Queue object.
 	 */
 
-	public static void prettyPrint(Queue<?> p) {
-		prettyPrint(p, false, false, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Queue<?> p) {
+		pprint(p, false, false, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for Queue collection with enumeration option.
+	 * Overloaded pprint for Queue collection with enumeration option.
 	 * 
 	 * @param p
 	 *            The Queue object.
@@ -439,12 +439,12 @@ public class CollectionPrint {
 	 *            If the index of each element should be printed.
 	 */
 
-	public static void prettyPrint(Queue<?> p, boolean enumerated) {
-		prettyPrint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Queue<?> p, boolean enumerated) {
+		pprint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for Queue collection with option to default table
+	 * Overloaded pprint for Queue collection with option to default table
 	 * format.
 	 * 
 	 * @param p
@@ -456,8 +456,8 @@ public class CollectionPrint {
 	 * @see io.github.woodenbell.pprint.Util.TableFormat#UNDERSCORE
 	 */
 
-	public static void prettyPrint(Queue<?> p, boolean tableLike, boolean enumerated) {
-		prettyPrint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Queue<?> p, boolean tableLike, boolean enumerated) {
+		pprint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
@@ -475,7 +475,7 @@ public class CollectionPrint {
 	 * @see java.util.Queue
 	 */
 
-	public static void prettyPrint(Queue<?> p, boolean tableLike, boolean enumerated, Util.TableFormat tableFormat) {
+	public static void pprint(Queue<?> p, boolean tableLike, boolean enumerated, Util.TableFormat tableFormat) {
 
 		if (p == null)
 			return;

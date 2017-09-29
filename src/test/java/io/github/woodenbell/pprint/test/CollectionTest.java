@@ -17,26 +17,26 @@ public class CollectionTest {
 		ArrayList<String> people = new ArrayList<>();
 		people.add("Sherlock Holmes, 37 years old, lives at 221B baker Street");
 		people.add("Me, 16 years old, lives in the middle of nothing");
-		people.add("Sherlock Holmes, 37 years old, lives at 221B baker Street");
-		people.add("Me, 16 years old, lives in the middle of nothing");
-		people.add("Sherlock Holmes, 37 years old, lives at 221B baker Street");
-		people.add("Me, 16 years old, lives in the middle of nothing");
-		people.add("Sherlock Holmes, 37 years old, lives at 221B baker Street");
-		people.add("Me, 16 years old, lives in the middle of nothing");
-		people.add("Sherlock Holmes, 37 years old, lives at 221B baker Streetzzzzzzzzzzzzzzzzzzzzzz");
-		people.add("Me, 16 years old, lives in the middle of nothing");
+		people.add("Someone else, ? years old");
+		people.add("How many people are left?");
+		people.add("People filler #1");
+		people.add("People filler #2");
+		people.add("John Smith");
+		people.add("John Smith II");
+		people.add("John Smith III");
+		people.add("And, again, John Smith IV");
 
-		CollectionPrint.prettyPrint(people);
-
-		System.out.println();
-		System.out.println();
-
-		CollectionPrint.prettyPrint(people, true);
+		CollectionPrint.pprint(people);
 
 		System.out.println();
 		System.out.println();
 
-		CollectionPrint.prettyPrint(people, true, true, Util.TableFormat.EQUALS);
+		CollectionPrint.pprint(people, true);
+
+		System.out.println();
+		System.out.println();
+
+		CollectionPrint.pprint(people, true, true, Util.TableFormat.EQUALS);
 
 		System.out.println();
 		System.out.println();
@@ -55,17 +55,17 @@ public class CollectionTest {
 		balance.put("Catherine Durant", 200.00);
 		balance.put("Klein Smith", 145.66);
 
-		CollectionPrint.prettyPrint(balance);
+		CollectionPrint.pprint(balance);
 
 		System.out.println();
 		System.out.println();
 
-		CollectionPrint.prettyPrint(balance, true);
+		CollectionPrint.pprint(balance, true);
 
 		System.out.println();
 		System.out.println();
 
-		CollectionPrint.prettyPrint(balance, true, true, Util.TableFormat.UNDERSCORE);
+		CollectionPrint.pprint(balance, true, true, Util.TableFormat.UNDERSCORE);
 
 		System.out.println();
 		System.out.println();
@@ -87,17 +87,17 @@ public class CollectionTest {
 		firstPrimes.add(19);
 		firstPrimes.add(23);
 
-		CollectionPrint.prettyPrint(firstPrimes);
+		CollectionPrint.pprint(firstPrimes);
 
 		System.out.println();
 		System.out.println();
 
-		CollectionPrint.prettyPrint(firstPrimes, true);
+		CollectionPrint.pprint(firstPrimes, true);
 
 		System.out.println();
 		System.out.println();
 
-		CollectionPrint.prettyPrint(firstPrimes, true, true, Util.TableFormat.HYPHEN);
+		CollectionPrint.pprint(firstPrimes, true, true, Util.TableFormat.HYPHEN);
 
 		System.out.println();
 		System.out.println();
@@ -120,17 +120,17 @@ public class CollectionTest {
 		firstNums.addFirst(1);
 		firstNums.addLast(10);
 
-		CollectionPrint.prettyPrint(firstNums);
+		CollectionPrint.pprint(firstNums);
 
 		System.out.println();
 		System.out.println();
 
-		CollectionPrint.prettyPrint(firstNums, true);
+		CollectionPrint.pprint(firstNums, true);
 
 		System.out.println();
 		System.out.println();
 
-		CollectionPrint.prettyPrint(firstNums, true, true);
+		CollectionPrint.pprint(firstNums, true, true);
 
 		System.out.println();
 		System.out.println();
@@ -158,13 +158,14 @@ public class CollectionTest {
 		hs.add("hey");
 		hs.add(null);
 
-		CollectionPrint.prettyPrint(hm1, true);
-		CollectionPrint.prettyPrint(hm2, true);
-		CollectionPrint.prettyPrint(hm2);
+		CollectionPrint.pprint(hm1, true);
+		CollectionPrint.pprint(hm2, true);
+		CollectionPrint.pprint(hm2);
 
-		CollectionPrint.prettyPrint(al);
+		CollectionPrint.pprint(al);
 
-		CollectionPrint.prettyPrint(hs);
+		CollectionPrint.pprint(hs);
 
 	}
+
 }

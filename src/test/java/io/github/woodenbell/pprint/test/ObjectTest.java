@@ -45,17 +45,17 @@ public class ObjectTest {
 
 		Person sherlock = new Person("Sherlock Holmes", 37, "Baker Street 221B");
 
-		ObjectPrint.prettyPrint(sherlock);
+		ObjectPrint.pprint(sherlock);
 
 		System.out.println();
 		System.out.println();
 
-		ObjectPrint.prettyPrint(sherlock, true);
+		ObjectPrint.pprint(sherlock, true);
 
 		System.out.println();
 		System.out.println();
 
-		ObjectPrint.prettyPrint(sherlock, true, true);
+		ObjectPrint.pprint(sherlock, true, true);
 
 		System.out.println();
 		System.out.println();
@@ -67,17 +67,17 @@ public class ObjectTest {
 
 		Object[] invited = new String[] { "Me", "You", "Everyone else" };
 
-		ObjectPrint.prettyPrint(invited);
+		ObjectPrint.pprint(invited);
 
 		System.out.println();
 		System.out.println();
 
-		ObjectPrint.prettyPrint(invited, true);
+		ObjectPrint.pprint(invited, true);
 
 		System.out.println();
 		System.out.println();
 
-		ObjectPrint.prettyPrint(invited, true, true, Util.TableFormat.EQUALS);
+		ObjectPrint.pprint(invited, true, true, Util.TableFormat.EQUALS);
 
 		System.out.println();
 		System.out.println();
@@ -226,12 +226,12 @@ public class ObjectTest {
 
 		people.addDataStruct("Job", jobPeople);
 
-		ObjectPrint.prettyPrintRecursive(people);
+		ObjectPrint.pprintRecursive(people);
 
 		System.out.println();
 		System.out.println();
 
-		ObjectPrint.prettyPrintRecursive(people, '=');
+		ObjectPrint.pprintRecursive(people, '=');
 
 		System.out.println();
 		System.out.println();
@@ -241,12 +241,12 @@ public class ObjectTest {
 	public void errorTest() {
 
 		Object[] objArray = null;
-		ObjectPrint.prettyPrint(objArray);
+		ObjectPrint.pprint(objArray);
 
 		PrettyPrintable customObj = null;
 
-		ObjectPrint.prettyPrint(customObj);
-		ObjectPrint.prettyPrintRecursive(customObj);
+		ObjectPrint.pprint(customObj);
+		ObjectPrint.pprintRecursive(customObj);
 
 		PrettyPrintable customObj2 = new PrettyPrintable() {
 
@@ -268,8 +268,8 @@ public class ObjectTest {
 
 		};
 
-		ObjectPrint.prettyPrint(customObj2);
-		ObjectPrint.prettyPrintRecursive(customObj2);
+		ObjectPrint.pprint(customObj2);
+		ObjectPrint.pprintRecursive(customObj2);
 
 		PrettyPrintable customObj3 = new PrettyPrintable() {
 
@@ -291,12 +291,12 @@ public class ObjectTest {
 
 		};
 
-		ObjectPrint.prettyPrint(customObj3);
-		ObjectPrint.prettyPrintRecursive(customObj3);
+		ObjectPrint.pprint(customObj3);
+		ObjectPrint.pprintRecursive(customObj3);
 
 		Object[] arr = new Object[] { null, null };
 
-		ObjectPrint.prettyPrint(arr);
+		ObjectPrint.pprint(arr);
 
 		PrettyPrintable customObj4 = new PrettyPrintable() {
 
@@ -318,8 +318,8 @@ public class ObjectTest {
 
 		};
 
-		ObjectPrint.prettyPrint(customObj4);
-		ObjectPrint.prettyPrintRecursive(customObj4);
+		ObjectPrint.pprint(customObj4);
+		ObjectPrint.pprintRecursive(customObj4);
 	}
 
 }

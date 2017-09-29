@@ -10,29 +10,29 @@
 **Examples [here](#examples)**
 ___
 
-## Using prettyPrint
+## Using pprint
 PrettyPrint, independent of the object type, is used in the following forms:
 
     // PPrintClass represents the class corresponding to the print type
     // Can be either ObjectPrint or CollectionPrint
-    
+
     // Prints without enumeration (or keys)
-    PPrintClass.prettyPrint(someObject);
-    
+    PPrintClass.pprint(someObject);
+
     // Prints with enumeration (or keys)..
-    PPrintClass.prettyPrint(someObject, true); 
-    
-    /* 
-    * Prints with enumeration (or keys) and in a table-format, with default 
+    PPrintClass.pprint(someObject, true);
+
+    /*
+    * Prints with enumeration (or keys) and in a table-format, with default
     * table format characters ( '_' and '|' )
     */
-    PPrintClass.prettyPrint(someObject, true, true);
-    
-    /* 
+    PPrintClass.pprint(someObject, true, true);
+
+    /*
     * Prints with enumeration (or keys) and in a table-format, with the equals sign ('=')
     * as top and bottom border, and with '_' as division and left/right borders.
     */
-    PPrintClass.prettyPrint(someObject, true, true, Util.TableFormat.EQUALS);
+    PPrintClass.pprint(someObject, true, true, Util.TableFormat.EQUALS);
 ___
 ## TableFormat options  
 **There are 3 options for TableFormat**:
@@ -40,20 +40,20 @@ ___
 - **Util.TableFormat.UNDERSCORE (default TableFormat option)**   
    top/bottom border: `_`
    right/left border: `|`
-  
+
 - **Util.TableFormat.EQUALS**   
    top/bottom border: `=`
    right/left border: `|`
-  
+
 - **Util.TableFormat.HYPHEN**   
    top/bottom border: `-`
    right/left border: `|`
 
 ## Object Printing
-To be pretty printed, an object must implement the `PrettyPrintable` interface. It's methodas are 
+To be pretty printed, an object must implement the `PrettyPrintable` interface. It's methodas are
 described below:
 - **ppIsRecursive()** - Must return `true` if the object accepts recursive printing, otherwise `false`.
-- **ppHasKeys()** - Must return `true` if the object will use keys when `enumerated` is `true` on `prettyPrint`, also if this methods returns `true` then `ppGetKeys()` cannot return `null`, otherwise the `prettyPrint` method will return immediately. Returning `false` will tell the method to use the index before each value when `enumerated` is `true`.
+- **ppHasKeys()** - Must return `true` if the object will use keys when `enumerated` is `true` on `pprint`, also if this methods returns `true` then `ppGetKeys()` cannot return `null`, otherwise the `pprint` method will return immediately. Returning `false` will tell the method to use the index before each value when `enumerated` is `true`.
 - **ppGetKeys()** - Must return an array of objects that are going to be used as keys, otherwise
 returns `null`.
 - **ppGetValues()** - Must return an array of objects containing the fields of the object that are going to be printed.
@@ -61,11 +61,11 @@ returns `null`.
 **Having implemented all the methods, you can print the object just like shown [above](#using-prettyprint), in the following way:**
 
     import io.github.woodenbell.pprint.ObjectPrint
-    
-    ObjectPrint.prettyPrint(myobj); //Default printing
+
+    ObjectPrint.pprint(myobj); //Default printing
     ObjectPrint.prettyRecursivePrint(myObj); //Recursive printing
 
-*PrettyPrint* also supports *Object* array printing, that works the same way as *Sets* described below, by using the *prettyPrint* method of the **ObjectPrint** class.
+*PrettyPrint* also supports *Object* array printing, that works the same way as *Sets* described below, by using the *pprint* method of the **ObjectPrint** class.
 
 ### Recursive object print
 Recursive print is only supported for objects, that must implement `PrettyPrintable`.  
@@ -91,13 +91,13 @@ Collection printing is separed in two types of collections:
 Printing a *Map* has the option `withKeys` instead of `enumerated`. The *Sets, Lists and Queues*
 will have their indexes printed.  
 
-  
+
 Collections use the **CollectionPrint** class, just like below:
 
     import io.github.woodenbell.pprint.CollectionPrint
-    
-    CollectionPrint.prettyPrint(myMap, true); //Prints the map with it's keys and values
-    CollectionPrint.prettyPrint(myList, true); //Prints the list elements with their indexes
+
+    CollectionPrint.pprint(myMap, true); //Prints the map with it's keys and values
+    CollectionPrint.pprint(myList, true); //Prints the list elements with their indexes
 
 **Collections unfortunately doesn't support recursive print, by the fact that collections, differently from objects that implement PrettyPrintable, have different ways to get keys and values. One example is Map and Set, because in map an Iterator is needed, while Set can be iterated by a for loop**
 ___
@@ -108,11 +108,11 @@ ___
 **The following examples are tanken from the tests**
 
 ### Object printing
-    
+
     import io.github.woodenbell.pprint.ObjectPrint;
     import io.github.woodenbell.pprint.PrettyPrintable;
-    
-    
+
+
     private static class Person implements PrettyPrintable {
 		String name;
 		int age;
@@ -141,11 +141,11 @@ ___
 	    }
 
     }
-	    
+
     Person sherlock = new Person("Sherlock Holmes", 37, "Baker Street 221B");
-	        
-	ObjectPrint.prettyPrint(sherlock);
-	    	
+
+	ObjectPrint.pprint(sherlock);
+
 	/*
 	* Output:
 	*
@@ -153,9 +153,9 @@ ___
     * 37               
     * Baker Street 221B
 	*/
-	    	
-	ObjectPrint.prettyPrint(sherlock, true);
-	    	
+
+	ObjectPrint.pprint(sherlock, true);
+
 	/*
 	* Output:
 	*
@@ -163,9 +163,9 @@ ___
     * Age: 37               
     * Address: Baker Street 221B
 	*/
-	    	
-	ObjectPrint.prettyPrint(sherlock, true, true, Util.TableFormat.UNDERSCORE);
-	    	
+
+	ObjectPrint.pprint(sherlock, true, true, Util.TableFormat.UNDERSCORE);
+
 	/*
 	* Output:
 	* ____________________________
@@ -175,14 +175,14 @@ ___
     * ____________________________
 	*/
 
-	    
+
 ### Object array printing
 
     import io.github.woodenbell.pprint.ObjectPrint;
-    
+
     Object[] people = new String[] {"Me", "You", "Everyone else"};
-    
-    ObjectPrint.prettyPrint(invited);
+
+    ObjectPrint.pprint(invited);
 
 	/*
 	* Me
@@ -190,16 +190,16 @@ ___
 	* Everyone else
 	*/
 
-	ObjectPrint.prettyPrint(invited, true);
-        
+	ObjectPrint.pprint(invited, true);
+
     /*
     * 0: Me
     * 1: You
     * 2: Everyone else
     */
 
-	ObjectPrint.prettyPrint(invited, true, true, Util.TableFormat.EQUALS);
-	
+	ObjectPrint.pprint(invited, true, true, Util.TableFormat.EQUALS);
+
 	/*
 	* ==================
     * |1 |Me           |
@@ -213,9 +213,9 @@ ___
     import io.github.woodenbell.pprint.ObjectPrint;
     import io.github.woodenbell.pprint.PrettyPrintable;
     import java.util.ArrayList;
-    
+
     // Simulates a JSON-like structure
-    
+
     private static class DataStruct implements PrettyPrintable {
 
 		List<Object> values;
@@ -331,7 +331,7 @@ ___
 		}
 
 	}
-    
+
     /*
     * Creates a people structure in the following form (JSON representation):
     * {
@@ -348,8 +348,8 @@ ___
     *           }
     *   }
     * }
-    
-    DataStruct people = new DataStruct();
+
+  DataStruct people = new DataStruct();
 	people.addInt("Total", 5);
 	people.addString("Janine", "Old friend");
 
@@ -366,9 +366,9 @@ ___
 	jobPeople.addDataStruct("Friends", jobFriends);
 
 	people.addDataStruct("Job", jobPeople);
-	
-	ObjectPrint.prettyPrintRecursive(people);
-	
+
+	ObjectPrint.pprintRecursive(people);
+
 	/* Output (default padding character is '-'
 	*
 	* Total:  5
@@ -376,17 +376,8 @@ ___
     * Job:    
     * ----Jon:     Boss
     * ----Alan:    32
-    * ----Friends: 
+    * ----Friends:
     * --------Paul: 40
     * --------Jake: 31
     *
     */
-
-
-		
-    
-
-    
-	    
-
-

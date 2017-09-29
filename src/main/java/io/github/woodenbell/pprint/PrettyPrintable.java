@@ -1,7 +1,7 @@
 package io.github.woodenbell.pprint;
 
 /**
- * Interface to be implemented by objects that support prettyPrint.
+ * Interface to be implemented by objects that support pprint.
  * 
  * @author WoodenBell
  * @see io.github.woodenbell.pprint.ObjectPrint
@@ -13,7 +13,7 @@ public interface PrettyPrintable {
 	 * Used to tell if the object supports recursive printing.
 	 * 
 	 * @return If the object supports recursive printing.
-	 * @see io.github.woodenbell.pprint.ObjectPrint#prettyPrintRecursive(PrettyPrintable)
+	 * @see io.github.woodenbell.pprint.ObjectPrint#pprintRecursive(PrettyPrintable)
 	 */
 
 	public boolean ppIsRecursive();

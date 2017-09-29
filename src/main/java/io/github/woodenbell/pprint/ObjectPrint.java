@@ -1,7 +1,7 @@
 package io.github.woodenbell.pprint;
 
 /*
-* Copyright 2017 WoodenBell
+* Copyright 2017 Gabriel C. Barbosa
 *
 *   Licensed under the Apache License, Version 2.0 (the "License");
 *   you may not use this file except in compliance with the License.
@@ -26,17 +26,17 @@ package io.github.woodenbell.pprint;
 public class ObjectPrint {
 
 	/**
-	 * Overloaded prettyPrint for object with default options.
+	 * Overloaded pprint for object with default options.
 	 * 
 	 * @param p
 	 *            The object that implements PrettyPrintable.
 	 */
-	public static void prettyPrint(PrettyPrintable p) {
-		prettyPrint(p, false, false, Util.TableFormat.UNDERSCORE);
+	public static void pprint(PrettyPrintable p) {
+		pprint(p, false, false, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for object with enumeration/key option.
+	 * Overloaded pprint for object with enumeration/key option.
 	 * 
 	 * @param p
 	 *            The object that implements PrettyPrintable.
@@ -44,12 +44,12 @@ public class ObjectPrint {
 	 *            If the index (or keys) should be included before each element.
 	 */
 
-	public static void prettyPrint(PrettyPrintable p, boolean enumerated) {
-		prettyPrint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(PrettyPrintable p, boolean enumerated) {
+		pprint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for object with option to default table format.
+	 * Overloaded pprint for object with option to default table format.
 	 * 
 	 * @param p
 	 *            The object that implements PrettyPrintable.
@@ -60,8 +60,8 @@ public class ObjectPrint {
 	 * @see io.github.woodenbell.pprint.Util.TableFormat#UNDERSCORE
 	 */
 
-	public static void prettyPrint(PrettyPrintable p, boolean tableLike, boolean enumerated) {
-		prettyPrint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(PrettyPrintable p, boolean tableLike, boolean enumerated) {
+		pprint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class ObjectPrint {
 	 * @see io.github.woodenbell.pprint.PrettyPrintable
 	 */
 
-	public static void prettyPrint(PrettyPrintable p, boolean tableLike, boolean enumerated,
+	public static void pprint(PrettyPrintable p, boolean tableLike, boolean enumerated,
 			Util.TableFormat tableFormat) {
 
 		if (p == null)
@@ -203,19 +203,19 @@ public class ObjectPrint {
 	/**
 	 * 
 	 * 
-	 * /** Overloaded prettyPrintRecursive to PrettyPrintable objects with default
+	 * /** Overloaded pprintRecursive to PrettyPrintable objects with default
 	 * padding character.
 	 * 
 	 * @param p
 	 *            The PrettyPrintable object.
 	 */
 
-	public static void prettyPrintRecursive(PrettyPrintable p) {
-		prettyPrintRecursive(p, '-', 0);
+	public static void pprintRecursive(PrettyPrintable p) {
+		pprintRecursive(p, '-', 0);
 	}
 
 	/**
-	 * Prints the PretttyPrintable object applying prettyPrint to PrettyPrintable
+	 * Prints the PretttyPrintable object applying pprint to PrettyPrintable
 	 * fields.
 	 * 
 	 * @param p
@@ -228,12 +228,12 @@ public class ObjectPrint {
 	 * @see io.github.woodenbell.pprint.PrettyPrintable
 	 */
 
-	public static void prettyPrintRecursive(PrettyPrintable p, char paddingChar) {
-		prettyPrintRecursive(p, paddingChar, 0);
+	public static void pprintRecursive(PrettyPrintable p, char paddingChar) {
+		pprintRecursive(p, paddingChar, 0);
 	}
 
 	/**
-	 * Invisible overload of prettyPrintRecursion used in recursion to print the
+	 * Invisible overload of pprintRecursion used in recursion to print the
 	 * padding based in depth.
 	 * 
 	 * @param p
@@ -245,7 +245,7 @@ public class ObjectPrint {
 	 *            The recursion depth, used for padding.
 	 */
 
-	private static void prettyPrintRecursive(PrettyPrintable p, char paddingChar, int depth) {
+	private static void pprintRecursive(PrettyPrintable p, char paddingChar, int depth) {
 
 		if (p == null || !p.ppIsRecursive() || (p.ppHasKeys() && p.ppGetKeys() == null) || p.ppGetValues() == null)
 			return;
@@ -301,7 +301,7 @@ public class ObjectPrint {
 				if (o instanceof PrettyPrintable) {
 
 					System.out.println();
-					prettyPrintRecursive((PrettyPrintable) o, paddingChar, depth + 1);
+					pprintRecursive((PrettyPrintable) o, paddingChar, depth + 1);
 
 				} else
 					System.out.println((o == null ? "null" : o.toString()));
@@ -322,7 +322,7 @@ public class ObjectPrint {
 				if (o instanceof PrettyPrintable) {
 
 					System.out.println();
-					prettyPrintRecursive((PrettyPrintable) o, paddingChar, depth + 1);
+					pprintRecursive((PrettyPrintable) o, paddingChar, depth + 1);
 
 				} else
 					System.out.println((o == null ? "null" : o.toString()));
@@ -333,18 +333,18 @@ public class ObjectPrint {
 	}
 
 	/**
-	 * Overloaded prettyPrint for Object array with default options.
+	 * Overloaded pprint for Object array with default options.
 	 * 
 	 * @param p
 	 *            The object array.
 	 */
 
-	public static void prettyPrint(Object[] p) {
-		prettyPrint(p, false, false, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Object[] p) {
+		pprint(p, false, false, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for Object array with enumeration option.
+	 * Overloaded pprint for Object array with enumeration option.
 	 * 
 	 * @param p
 	 *            The Object array.
@@ -352,12 +352,12 @@ public class ObjectPrint {
 	 *            If the index of each element should be printed.
 	 */
 
-	public static void prettyPrint(Object[] p, boolean enumerated) {
-		prettyPrint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Object[] p, boolean enumerated) {
+		pprint(p, false, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
-	 * Overloaded prettyPrint for Object array with option to default table format.
+	 * Overloaded pprint for Object array with option to default table format.
 	 * 
 	 * @param p
 	 *            The Object array.
@@ -368,8 +368,8 @@ public class ObjectPrint {
 	 * @see io.github.woodenbell.pprint.Util.TableFormat#UNDERSCORE
 	 */
 
-	public static void prettyPrint(Object[] p, boolean tableLike, boolean enumerated) {
-		prettyPrint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
+	public static void pprint(Object[] p, boolean tableLike, boolean enumerated) {
+		pprint(p, tableLike, enumerated, Util.TableFormat.UNDERSCORE);
 	}
 
 	/**
@@ -386,7 +386,7 @@ public class ObjectPrint {
 	 * @see io.github.woodenbell.pprint.Util.TableFormat
 	 */
 
-	public static void prettyPrint(Object[] p, boolean tableLike, boolean enumerated, Util.TableFormat tableFormat) {
+	public static void pprint(Object[] p, boolean tableLike, boolean enumerated, Util.TableFormat tableFormat) {
 
 		if (p == null)
 			return;
