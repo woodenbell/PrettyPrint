@@ -3,7 +3,8 @@ package io.github.woodenbell.pprint;
 /**
  * Interface to be implemented by objects that support pprint.
  * 
- * @author WoodenBell
+ * @author Gabriel C.
+ * 
  * @see io.github.woodenbell.pprint.ObjectPrint
  */
 

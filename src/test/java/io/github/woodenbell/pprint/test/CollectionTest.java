@@ -2,7 +2,8 @@ package io.github.woodenbell.pprint.test;
 
 import org.junit.Test;
 
-import io.github.woodenbell.pprint.*;
+import io.github.woodenbell.pprint.CollectionPrint;
+import io.github.woodenbell.pprint.Util;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -13,7 +14,10 @@ public class CollectionTest {
 
 	@Test
 	public void ListTest() {
-
+		
+		System.out.println("- Testing List pprint");
+		System.out.println();
+		
 		ArrayList<String> people = new ArrayList<>();
 		people.add("Sherlock Holmes, 37 years old, lives at 221B baker Street");
 		people.add("Me, 16 years old, lives in the middle of nothing");
@@ -37,7 +41,6 @@ public class CollectionTest {
 		System.out.println();
 
 		CollectionPrint.pprint(people, true, true, Util.TableFormat.EQUALS);
-
 		System.out.println();
 		System.out.println();
 
@@ -45,6 +48,9 @@ public class CollectionTest {
 
 	@Test
 	public void MapTest() {
+		
+		System.out.println("- Testing Map pprint");
+		System.out.println();
 
 		HashMap<String, Double> balance = new HashMap<>();
 
@@ -73,6 +79,9 @@ public class CollectionTest {
 
 	@Test
 	public void SetTest() {
+		
+		System.out.println("- Testing Set pprint");
+		System.out.println();
 
 		HashSet<Integer> firstPrimes = new HashSet<>();
 
@@ -105,6 +114,9 @@ public class CollectionTest {
 
 	@Test
 	public void QueueTest() {
+		
+		System.out.println("- Testing Queue pprint");
+		System.out.println();
 
 		ArrayDeque<Integer> firstNums = new ArrayDeque<>();
 
@@ -138,6 +150,9 @@ public class CollectionTest {
 
 	@Test
 	public void errorTest() {
+		
+		System.out.println("- Testing pprint on collections with null elements or values");
+		System.out.println();
 
 		HashMap<String, String> hm1 = new HashMap<>();
 		HashMap<String, String> hm2 = new HashMap<>();

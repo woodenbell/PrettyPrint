@@ -1,8 +1,9 @@
 -d 'C:\\Users\\Gabriel C\\Desktop\\workspace2\\PrettyPrint\\build\\docs\\javadoc'
--doctitle 'PrettyPrint 1.0 API'
+-doctitle 'PrettyPrint 1.1 API'
 -quiet 
--windowtitle 'PrettyPrint 1.0 API'
+-windowtitle 'PrettyPrint 1.1 API'
 'C:\\Users\\Gabriel C\\Desktop\\workspace2\\PrettyPrint\\src\\main\\java\\io\\github\\woodenbell\\pprint\\CollectionPrint.java'
 'C:\\Users\\Gabriel C\\Desktop\\workspace2\\PrettyPrint\\src\\main\\java\\io\\github\\woodenbell\\pprint\\ObjectPrint.java'
 'C:\\Users\\Gabriel C\\Desktop\\workspace2\\PrettyPrint\\src\\main\\java\\io\\github\\woodenbell\\pprint\\PrettyPrintable.java'
+'C:\\Users\\Gabriel C\\Desktop\\workspace2\\PrettyPrint\\src\\main\\java\\io\\github\\woodenbell\\pprint\\SimplePrint.java'
 'C:\\Users\\Gabriel C\\Desktop\\workspace2\\PrettyPrint\\src\\main\\java\\io\\github\\woodenbell\\pprint\\Util.java'

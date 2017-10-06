@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Implementation-Title: "io.github.woodenbell.pprint"
-Implementation-Version: "build1"
+Implementation-Version: "build2"
 Sealed: true
 Specification-Vendor: "WoodenBell"
 Name: io/github/woodenbell/pprint
 Specification-Title: "PrettyPrint Java Library"
-Specification-Version: "1.0"
+Specification-Version: "1.1"
 Implementation-Vendor: "WoodenBell"
 

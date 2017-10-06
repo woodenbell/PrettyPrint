@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import io.github.woodenbell.pprint.*;
+import io.github.woodenbell.pprint.ObjectPrint;
+import io.github.woodenbell.pprint.PrettyPrintable;
+import io.github.woodenbell.pprint.Util;
 
 public class ObjectTest {
 
@@ -42,7 +44,10 @@ public class ObjectTest {
 
 	@Test
 	public void PPObjectTest() {
-
+		
+		System.out.println("- Testing custom object pprint");
+		System.out.println();
+		
 		Person sherlock = new Person("Sherlock Holmes", 37, "Baker Street 221B");
 
 		ObjectPrint.pprint(sherlock);
@@ -64,7 +69,10 @@ public class ObjectTest {
 
 	@Test
 	public void ObjectArrayTest() {
-
+		
+		System.out.println("- Testing object array pprint");
+		System.out.println();
+		
 		Object[] invited = new String[] { "Me", "You", "Everyone else" };
 
 		ObjectPrint.pprint(invited);
@@ -208,6 +216,9 @@ public class ObjectTest {
 	@Test
 	public void RecursiveObjectTest() {
 		
+		System.out.println("- Testing custom object recursive pprint");
+		System.out.println();
+		
 		DataStruct people = new DataStruct();
 		people.addInt("Total", 5);
 		people.addString("Janine", "Old friend");
@@ -239,6 +250,9 @@ public class ObjectTest {
 
 	@Test
 	public void errorTest() {
+		
+		System.out.println("- Testing pprint with null values");
+		System.out.println();
 
 		Object[] objArray = null;
 		ObjectPrint.pprint(objArray);

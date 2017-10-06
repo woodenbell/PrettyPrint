@@ -17,10 +17,10 @@ package io.github.woodenbell.pprint;
 */
 
 /**
- * Class with methods to print objects that are not collections.
+ * Class with methods to print objects (not collections) and custom
+ * pprint objects.
  * 
- * @author WoodenBell
- * @version 1.0
+ * @author Gabriel C.
  */
 
 public class ObjectPrint {

@@ -9,8 +9,7 @@ import java.util.Set;
 /**
  * PrettyPrint class for collections.
  * 
- * @author WoodenBell
- * @version 1.0
+ * @author Gabriel C.
  *
  */
 
