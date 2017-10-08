@@ -38,7 +38,7 @@ PrettyPrint, independent of the object type, is used in the following forms:
      //Note that SimplePrint just uses the following format
     SimplePrint.pprint(objectOrCOllection);
 ___
-## Simple printing
+## Simple printing _(since 1.1)_
 Simple printing contains pprint methods that print the object in a simple format (very similar
 to _Python_'s string representation format).  
   
