@@ -4,7 +4,8 @@
 #### Features of pprint
 - Collection printing
 - Printing options, like enumeration (or key printing) and table-format
-- Custom pretty printing for objects!
+- Custom pprinting for objects!
+- Simple pprinting for objects and collections (similar to Python's printing)
 - Recursive printing for objects!
 
 **Examples [here](#examples)**
@@ -33,24 +34,30 @@ PrettyPrint, independent of the object type, is used in the following forms:
     * as top and bottom border, and with '_' as division and left/right borders.
     */
     PPrintClass.pprint(someObject, true, true, Util.TableFormat.EQUALS);
+    
+     //Note that SimplePrint just uses the following format
+    SimplePrint.pprint(objectOrCOllection);
 ___
-## TableFormat options  
-**There are 3 options for TableFormat**:
+## Simple printing
+Simple printing contains pprint methods that print the object in a simple format (very similar
+to _Python_'s string representation format).  
+  
+**Object arrays, lists and queues are printed in the following format**:  
+[_elem1_, _elem2_, _elem3_, _..._]
 
-- **Util.TableFormat.UNDERSCORE (default TableFormat option)**   
-   top/bottom border: `_`
-   right/left border: `|`
+**Sets are printed in a similar format, but with curly braces:**  
+{_elem1_, _elem2_, _elem3_, _..._}
 
-- **Util.TableFormat.EQUALS**   
-   top/bottom border: `=`
-   right/left border: `|`
-
-- **Util.TableFormat.HYPHEN**   
-   top/bottom border: `-`
-   right/left border: `|`
+**Maps, however, are printed with each _key-value pair_ in a different line:**  
+{  
+    _key1_: _value1_,  
+    _key2_: _value2_,  
+    _key3_: _value3_, 
+    ...  
+}
 
 ## Object Printing
-To be pretty printed, an object must implement the `PrettyPrintable` interface. It's methodas are
+To be pretty printed, an object must implement the `PrettyPrintable` interface. It's methods are
 described below:
 - **ppIsRecursive()** - Must return `true` if the object accepts recursive printing, otherwise `false`.
 - **ppHasKeys()** - Must return `true` if the object will use keys when `enumerated` is `true` on `pprint`, also if this methods returns `true` then `ppGetKeys()` cannot return `null`, otherwise the `pprint` method will return immediately. Returning `false` will tell the method to use the index before each value when `enumerated` is `true`.
@@ -82,7 +89,6 @@ Outer2:
 --------Inner3: "depth=2, 2 * 4 = 8 padding chars"  
 
 You can find an example of recursive *prettyprint* in action [here](#recursive-object-printing)
-
 ## Collection printing
 Collection printing is separed in two types of collections:
 - The ones that use keys: **Map**
@@ -100,6 +106,22 @@ Collections use the **CollectionPrint** class, just like below:
     CollectionPrint.pprint(myList, true); //Prints the list elements with their indexes
 
 **Collections unfortunately doesn't support recursive print, by the fact that collections, differently from objects that implement PrettyPrintable, have different ways to get keys and values. One example is Map and Set, because in map an Iterator is needed, while Set can be iterated by a for loop**
+
+## TableFormat options  
+**There are 3 options for TableFormat**:
+
+- **Util.TableFormat.UNDERSCORE (default TableFormat option)**   
+   top/bottom border: `_`
+   right/left border: `|`
+
+- **Util.TableFormat.EQUALS**   
+   top/bottom border: `=`
+   right/left border: `|`
+
+- **Util.TableFormat.HYPHEN**   
+   top/bottom border: `-`
+   right/left border: `|`
+
 ___
 
 
