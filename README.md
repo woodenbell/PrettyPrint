@@ -127,7 +127,7 @@ ___
 
 ## Examples
 
-**The following examples are tanken from the tests**
+**The following examples are taken from the tests**
 
 ### Object printing
 
@@ -371,7 +371,7 @@ ___
     *   }
     * }
 
-  DataStruct people = new DataStruct();
+	DataStruct people = new DataStruct();
 	people.addInt("Total", 5);
 	people.addString("Janine", "Old friend");
 
@@ -391,7 +391,7 @@ ___
 
 	ObjectPrint.pprintRecursive(people);
 
-	/* Output (default padding character is '-'
+	/* Output (default padding character is '-')
 	*
 	* Total:  5
     * Janine: Old friend
